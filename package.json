@@ -1,0 +1,19 @@
+{
+  "name": "typescript-react-nextjs-redux-starter",
+  "version": "1.0.0",
+  "description": "Minimal starter with typescript, react, nextjs, redux, redux-saga, emotion",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "typescript",
+    "react",
+    "nextjs",
+    "redux",
+    "redux-saga",
+    "ssr",
+    "emotion",
+    "starter-kit"
+  ],
+  "author": "HJ",
+  "license": "ISC"
+}
