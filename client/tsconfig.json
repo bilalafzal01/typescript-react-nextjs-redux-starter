@@ -9,7 +9,6 @@
     "esModuleInterop": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "resolveJsonModule": true,
@@ -17,12 +16,13 @@
     "noImplicitAny": false,
     "strictNullChecks": false,
     "preserveConstEnums": true,
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@components/*": ["components/*"],
-      "@containers/*": ["containers/*"],
-      "@redux/*": ["redux/*"],
       "@pages/*": ["pages/*"],
+      "@redux/*": ["redux/*"],
+      "@containers/*": ["containers/*"],
       "@constants/*": ["constants/*"],
       "@utils/*": ["utils/*"]
     }
