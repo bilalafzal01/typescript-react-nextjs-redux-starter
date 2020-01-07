@@ -15,8 +15,18 @@ const global = css`
   #__next {
   }
 
-  section, div {
+  section,
+  div {
     display: grid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    cursor: inherit;
+    &:active {
+      color: inherit;
+    }
   }
 `;
 

@@ -1,10 +1,11 @@
 import React from 'react';
-import { NextPage } from 'next';
+import { NextJSContext } from 'next-redux-wrapper';
 import styled from '@emotion/styled';
 
 import RegisterContainer from '@components/container/register-container';
 import ListContainer from '@components/container/list-container';
 
+import { ETodoType } from '@redux/todo/type';
 import BREAKPOINTS from '@constants/mediaquery';
 
 const Main = styled.main`
@@ -14,7 +15,7 @@ const Main = styled.main`
   }
 `;
 
-const Index: NextPage = () => {
+const Index = () => {
   return (
     <Main>
       <RegisterContainer />
@@ -23,7 +24,11 @@ const Index: NextPage = () => {
   );
 };
 
-Index.getInitialProps = async () => {
+Index.getInitialProps = async ({ store }: NextJSContext) => {
+  store.dispatch({
+    type: ETodoType.TODO_LOAD_REQUEST,
+  });
+
   return {};
 };
 

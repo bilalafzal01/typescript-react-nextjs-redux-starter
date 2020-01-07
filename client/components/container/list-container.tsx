@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { useSelector } from 'react-redux';
 
 import TodoCard from '@components/card/todo-card';
 
+import { TRootState } from '@redux/rootReducer';
+
 import COLOR from '@constants/color';
-import BREAKPOINTS from '@constants/mediaquery';
+import BREAKPOINT from '@constants/mediaquery';
 
 const ListSection = styled.section`
   justify-content: center;
@@ -14,7 +17,7 @@ const ListSection = styled.section`
   min-width: 500px;
   max-width: 900px;
 
-  ${BREAKPOINTS} {
+  ${BREAKPOINT} {
     margin: auto;
     min-width: 375px;
     max-width: 375px;
@@ -33,7 +36,7 @@ const ListDiv = styled.div`
   border-radius: 10px;
   background-color: ${COLOR.CLOUDS};
 
-  ${BREAKPOINTS} {
+  ${BREAKPOINT} {
     overflow-y: scroll;
     padding: 20px;
     width: 315px;
@@ -45,18 +48,13 @@ const ListDiv = styled.div`
 `;
 
 const ListContainer: React.FC = () => {
+  const { todoDatas } = useSelector((state: TRootState) => state.todo);
   return (
     <ListSection>
       <ListDiv>
-        <TodoCard />
-        <TodoCard />
-        <TodoCard />
-        <TodoCard />
-        <TodoCard />
-        <TodoCard />
-        <TodoCard />
-        <TodoCard />
-        <TodoCard />
+        {todoDatas.map(todoData => (
+          <TodoCard key={todoData.id} id={todoData.id} content={todoData.content} />
+        ))}
       </ListDiv>
     </ListSection>
   );

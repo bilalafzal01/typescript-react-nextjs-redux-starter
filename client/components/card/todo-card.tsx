@@ -1,12 +1,21 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Router from 'next/router';
+import Link from 'next/link';
 
 import { Article } from '.';
-import IconButton from '@components/button/icon-button';
+import Button from '@components/button';
 
 import BUTTON from '@constants/button';
 import COLOR from '@constants/color';
 import BREAKPOINTS from '@constants/mediaquery';
+import { useDispatch } from 'react-redux';
+import { ETodoType } from '@redux/todo/type';
+
+interface IProps {
+  id: number;
+  content: string;
+}
 
 const StyledTodoCard = styled(Article)`
   grid-template-columns: auto 50px;
@@ -41,11 +50,24 @@ const Content = ({ children }) => (
   </StyledContent>
 );
 
-const TodoCard: React.FC = () => {
+const TodoCard: React.FC<IProps> = ({ id, content }) => {
+  const dispatch = useDispatch();
+
+  const onClickAchieve = () => {
+    dispatch({
+      type: ETodoType.TODO_ACHIEVE_REQUEST,
+      payload: { id },
+    });
+  };
+
   return (
     <StyledTodoCard>
-      <Content>행복한 하루를 ASB AS;FDJ;LAASD;FKLJAS;DFJ</Content>
-      <IconButton>{BUTTON.DONE}</IconButton>
+      <Link href={`/detail/${id}`}>
+        <a>
+          <Content>{content}</Content>
+        </a>
+      </Link>
+      <Button onClickHandler={onClickAchieve} buttonType={BUTTON.DONE} />
     </StyledTodoCard>
   );
 };

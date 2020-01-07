@@ -16,6 +16,8 @@ app
     server.use(express.urlencoded({ extended: false }));
     server.use('/public/', express.static(path.join(__dirname, 'public')));
 
+    server.get('/detail/:id', (req, res) => app.render(req, res, '/detail', { id: req.params.id }));
+
     server.get('*', (req, res) => handler(req, res));
 
     server.listen(3000, () => {

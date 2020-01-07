@@ -1,3 +1,3 @@
-const BREAKPOINTS = '@media (max-width: 500px)';
+const BREAKPOINT = '@media (max-width: 500px)';
 
-export default BREAKPOINTS;
+export default BREAKPOINT;

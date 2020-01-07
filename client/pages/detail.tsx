@@ -1,32 +1,31 @@
 import React from 'react';
-import { NextPage } from 'next';
+import { NextJSContext } from 'next-redux-wrapper';
 import styled from '@emotion/styled';
 
-import DetailContainer from '@components/container/detail-container'
+import DetailContainer from '@components/container/detail-container';
 
-import BREAKPOINTS from '@constants/mediaquery';
+import { ETodoType } from '@redux/todo/type';
 
 const Main = styled.main`
   display: grid;
   justify-content: center;
   align-items: center;
-
-  ${BREAKPOINTS} {
-    display: grid;
-    grid-template-rows: 112px 555px;
-  }
 `;
 
-const Detail: NextPage = () => {
+const Detail = ({ id }) => {
   return (
     <Main>
-      <DetailContainer />
+      <DetailContainer id={id} />
     </Main>
   );
 };
 
-Detail.getInitialProps = async () => {
-  return {};
+Detail.getInitialProps = ({ store, query }: NextJSContext) => {
+  store.dispatch({
+    type: ETodoType.TODO_LOAD_REQUEST,
+  });
+
+  return { id: query.id };
 };
 
 export default Detail;

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState, MouseEvent } from 'react';
 import styled from '@emotion/styled';
 
 import WriteInput from '@components/input/write-input';
-import IconButton from '@components/button/icon-button';
+import Button from '@components/button';
 
-import BREAKPOINTS from '@constants/mediaquery';
+import BREAKPOINT from '@constants/mediaquery';
 import COLOR from '@constants/color';
 import BUTTON from '@constants/button';
+import { useDispatch } from 'react-redux';
+import { ETodoType } from '@redux/todo/type';
 
 const RegisterSection = styled.section`
   justify-content: center;
@@ -16,7 +18,7 @@ const RegisterSection = styled.section`
   min-width: 500px;
   max-width: 900px;
 
-  ${BREAKPOINTS} {
+  ${BREAKPOINT} {
     margin: auto;
     min-width: 375px;
     max-width: 375px;
@@ -30,7 +32,7 @@ const RegisterDiv = styled.div`
   margin: auto 50px;
   border: 1px solid ${COLOR.CARROT};
 
-  ${BREAKPOINTS} {
+  ${BREAKPOINT} {
     grid-template-columns: 263px 50px;
     justify-content: center;
     margin: 30px;
@@ -38,11 +40,33 @@ const RegisterDiv = styled.div`
 `;
 
 const RegisterContainer: React.FC = () => {
+  const dispatch = useDispatch();
+
+  const [content, setContent] = useState<string>('');
+
+  const onChangeContent = (e: React.ChangeEvent<HTMLInputElement>) => setContent(e.currentTarget.value);
+
+  const onSubmit = e => {
+    if (content.trim().length <= 0) return;
+    if (e.key && e.key !== 'Enter') return;
+
+    setContent('');
+
+    dispatch({
+      type: ETodoType.TODO_REGISTER_REQUEST,
+      payload: { content },
+    });
+  };
+
   return (
     <RegisterSection>
       <RegisterDiv>
-        <WriteInput />
-        <IconButton>{BUTTON.CREATE}</IconButton>
+        <WriteInput content={content} onChangeHandler={onChangeContent} onKeyDownHandler={onSubmit} />
+        <Button
+          onClickHandler={onSubmit}
+          buttonType={BUTTON.CREATE}
+          buttonColor={content.trim().length <= 0 && COLOR.SILVER}
+        />
       </RegisterDiv>
     </RegisterSection>
   );
