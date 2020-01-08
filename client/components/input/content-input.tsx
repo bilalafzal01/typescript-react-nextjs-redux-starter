@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const StyledContentInput = styled.input`
-  padding: 10px;
+  padding: 10px 20px;
   height: 60px;
   border: none;
   font-size: 24px;

@@ -5,7 +5,9 @@
   "main": "server.ts",
   "scripts": {
     "dev": "nodemon",
-    "test": "jest"
+    "test": "jest",
+    "build": "next build && tsc --project tsconfig.server.json",
+    "start": "npm run build && node .next/server.js"
   },
   "author": "HJ",
   "license": "ISC",
