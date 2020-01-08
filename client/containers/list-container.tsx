@@ -1,13 +1,11 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
+import styled from '@emotion/styled';
 
-import TodoCard from '@components/card/todo-card';
+import { TodoCard } from '@components/card';
+import { COLOR, BREAKPOINT } from '@constants/index';
 
 import { TRootState } from '@redux/rootReducer';
-
-import COLOR from '@constants/color';
-import BREAKPOINT from '@constants/mediaquery';
 
 const ListSection = styled.section`
   justify-content: center;

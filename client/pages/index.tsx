@@ -2,8 +2,8 @@ import React from 'react';
 import { NextJSContext } from 'next-redux-wrapper';
 import styled from '@emotion/styled';
 
-import RegisterContainer from '@components/container/register-container';
-import ListContainer from '@components/container/list-container';
+import RegisterContainer from '@containers/register-container';
+import ListContainer from '@containers/list-container';
 
 import { ETodoType } from '@redux/todo/type';
 import BREAKPOINTS from '@constants/mediaquery';

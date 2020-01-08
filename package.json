@@ -15,5 +15,8 @@
     "starter-kit"
   ],
   "author": "HJ",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-proposal-export-default-from": "^7.7.4"
+  }
 }

@@ -16,6 +16,7 @@ const global = css`
   }
 
   section,
+  article,
   div {
     display: grid;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import { NextJSContext } from 'next-redux-wrapper';
 import styled from '@emotion/styled';
 
-import DetailContainer from '@components/container/detail-container';
+import DetailContainer from '@containers/detail-container';
 
 import { ETodoType } from '@redux/todo/type';
 

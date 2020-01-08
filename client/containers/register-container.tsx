@@ -1,13 +1,11 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from '@emotion/styled';
 
-import WriteInput from '@components/input/write-input';
-import Button from '@components/button';
+import { ContentInput } from '@components/input';
+import { Button } from '@components/button';
+import { BREAKPOINT, COLOR, BUTTON } from '@constants/index';
 
-import BREAKPOINT from '@constants/mediaquery';
-import COLOR from '@constants/color';
-import BUTTON from '@constants/button';
-import { useDispatch } from 'react-redux';
 import { ETodoType } from '@redux/todo/type';
 
 const RegisterSection = styled.section`
@@ -61,7 +59,7 @@ const RegisterContainer: React.FC = () => {
   return (
     <RegisterSection>
       <RegisterDiv>
-        <WriteInput content={content} onChangeHandler={onChangeContent} onKeyDownHandler={onSubmit} />
+        <ContentInput content={content} onChangeHandler={onChangeContent} onKeyDownHandler={onSubmit} />
         <Button
           onClickHandler={onSubmit}
           buttonType={BUTTON.CREATE}

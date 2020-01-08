@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { Article } from '.';
-
 interface IProps {
   content: string;
 }
 
-const StyledDetailCard = styled(Article)`
+const StyledDetailCard = styled.article`
   padding: 20px 15px;
   text-align: center;
   h3 {

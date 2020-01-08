@@ -1,13 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
+import styled from '@emotion/styled';
 
-import Button from '@components/button';
-import DetailCard from '@components/card/detail-card';
+import { Button } from '@components/button';
+import { DetailCard } from '@components/card';
+import { COLOR, BUTTON } from '@constants/index';
 
-import COLOR from '@constants/color';
-import BUTTON from '@constants/button';
 import { TRootState } from '@redux/rootReducer';
 import { ETodoType } from '@redux/todo/type';
 
@@ -26,11 +25,6 @@ const DetailSection = styled.section`
 
 const ButtonContainer = styled.div`
   grid-template-columns: 1fr 1fr;
-  column-gap: 2px;
-  div {
-    height: 100%;
-    /* background-color: ${COLOR.CLOUDS}; */
-  }
 `;
 
 const DetailContainer: React.FC<IProps> = ({ id }) => {

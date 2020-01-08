@@ -1,15 +1,11 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import Router from 'next/router';
-import Link from 'next/link';
-
-import { Article } from '.';
-import Button from '@components/button';
-
-import BUTTON from '@constants/button';
-import COLOR from '@constants/color';
-import BREAKPOINTS from '@constants/mediaquery';
 import { useDispatch } from 'react-redux';
+import Link from 'next/link';
+import styled from '@emotion/styled';
+
+import { Button } from '@components/button';
+import { BUTTON, COLOR, BREAKPOINT } from '@constants/index';
+
 import { ETodoType } from '@redux/todo/type';
 
 interface IProps {
@@ -17,7 +13,7 @@ interface IProps {
   content: string;
 }
 
-const StyledTodoCard = styled(Article)`
+const StyledTodoCard = styled.article`
   grid-template-columns: auto 50px;
   height: 50px;
   background-color: ${COLOR.WHITE};
@@ -38,7 +34,7 @@ const StyledContent = styled('div')`
     overflow: hidden;
     cursor: default;
 
-    ${BREAKPOINTS} {
+    ${BREAKPOINT} {
       width: 175px;
     }
   }

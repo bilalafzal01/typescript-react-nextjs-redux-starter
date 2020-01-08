@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Button from '@components/button';
+import Button from '@components/button/button';
 import BUTTON from '@constants/button';
 
 describe('<Index />', () => {
