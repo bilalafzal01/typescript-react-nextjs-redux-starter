@@ -1,7 +1,9 @@
 # typescript-react-nextjs-redux-starter
+
 Minimal starter with typescript, react, nextjs, redux, redux-saga, emotion
 
 ### INSTALL
+
 <pre>
 <code>
 #Move server folder and npm script
@@ -15,6 +17,7 @@ npm install
 </pre>
 
 ### DEV MODE
+
 <pre>
 <code>
 #Move server folder and npm script
@@ -28,6 +31,7 @@ npm run dev
 </pre>
 
 ### BUILD AND START
+
 <pre>
 <code>
 #Move server folder and npm script
