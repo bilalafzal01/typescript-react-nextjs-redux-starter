@@ -6,11 +6,12 @@ Minimal starter with typescript, react, nextjs, redux, redux-saga, emotion
 
 <pre>
 <code>
-#Move server folder and npm script
+#install node_modules
+#server
 cd typescript-react-nextjs-redux-starter/server/
 npm install
 
-#Move client folder and npm script
+#client
 cd typescript-react-nextjs-redux-starter/client/
 npm install
 </code>
@@ -20,11 +21,12 @@ npm install
 
 <pre>
 <code>
-#Move server folder and npm script
+#run app on dev mode
+#server
 cd typescript-react-nextjs-redux-starter/server/
 npm run dev
 
-#Move client folder and npm script
+#client
 cd typescript-react-nextjs-redux-starter/client/
 npm run dev
 </code>
@@ -34,12 +36,13 @@ npm run dev
 
 <pre>
 <code>
-#Move server folder and npm script
+#app build and start
+#server
 cd typescript-react-nextjs-redux-starter/server/
-npm run start
+npm start
 
-#Move client folder and npm script
+#client
 cd typescript-react-nextjs-redux-starter/client/
-npm run start
+npm start
 </code>
 </pre>
