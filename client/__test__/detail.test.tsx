@@ -29,7 +29,6 @@ describe('<Detail />', () => {
 
   describe('<DetailCard />', () => {
     const detailCardWrapper = wrapper.find(DetailCard);
-    console.log(detailCardWrapper.find('h3').text());
     it('renders detailCard component', () => {
       expect(detailCardWrapper.find('h3').text()).toBe('1');
     });
