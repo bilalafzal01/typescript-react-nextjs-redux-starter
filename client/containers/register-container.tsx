@@ -45,14 +45,14 @@ const RegisterContainer: React.FC = () => {
   const onChangeContent = (e: React.ChangeEvent<HTMLInputElement>) => setContent(e.currentTarget.value);
 
   const onSubmit = e => {
-    if (content.trim().length <= 0) return;
     if (e.key && e.key !== 'Enter') return;
+    if (content.trim().length <= 0) return;
 
     setContent('');
 
     dispatch({
       type: ETodoType.TODO_REGISTER_REQUEST,
-      payload: { content },
+      payload: { content: content.trim() },
     });
   };
 
