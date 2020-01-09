@@ -40,7 +40,7 @@ const RegisterDiv = styled.div`
 const RegisterContainer: React.FC = () => {
   const dispatch = useDispatch();
 
-  const [content, setContent] = useState<string>('');
+  const [content, setContent] = useState<string>('input content');
 
   const onChangeContent = (e: React.ChangeEvent<HTMLInputElement>) => setContent(e.currentTarget.value);
 

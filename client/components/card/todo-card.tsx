@@ -28,9 +28,10 @@ const StyledTodoCard = styled.article`
 const StyledContent = styled('div')`
   padding: 12.5px 20px;
   margin: 0;
-  h3 {
+  h5 {
     margin: 0;
     height: 25px;
+    font-size: 1rem;
     overflow: hidden;
     cursor: default;
 
@@ -42,7 +43,7 @@ const StyledContent = styled('div')`
 
 const Content = ({ children }) => (
   <StyledContent>
-    <h3>{children}</h3>
+    <h5>{children}</h5>
   </StyledContent>
 );
 

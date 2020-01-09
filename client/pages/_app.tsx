@@ -6,8 +6,8 @@ import withReduxSaga from 'next-redux-saga';
 import { AppInitialProps, AppProps, AppContext } from 'next/app';
 import Head from 'next/head';
 
-import { TRootState } from '@redux/rootReducer';
 import configureStore from '../redux/configureStore';
+import { TRootState } from '@redux/rootReducer';
 
 type Props = { store: Store<TRootState> } & AppInitialProps & AppProps;
 
@@ -34,5 +34,5 @@ App.getInitialProps = async ({ Component, ctx }: AppContext) => {
     pageProps: { ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}) },
   };
 };
-
 export default withRedux(configureStore)(withReduxSaga(App));
+
