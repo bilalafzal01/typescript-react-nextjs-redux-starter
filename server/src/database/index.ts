@@ -35,6 +35,6 @@ export default class DataBase {
     }
 
     // this._todoDatas = this._todoDatas.filter(data => data.id !== id);
-    return 1;
+    return id;
   }
 }
