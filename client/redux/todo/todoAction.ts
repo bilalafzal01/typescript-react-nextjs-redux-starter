@@ -1,4 +1,4 @@
-import { ETodoType } from './type';
+import { ETodoType } from './todoType';
 
 export const todoRegisterAction = (content: string) => ({
   type: ETodoType.TODO_REGISTER_REQUEST,

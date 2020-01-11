@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import DetailContainer from '@containers/detail-container';
 
-import { ETodoType } from '@redux/todo/type';
+import { ETodoType } from '@redux/todo/todoType';
 
 const Main = styled.main`
   display: grid;

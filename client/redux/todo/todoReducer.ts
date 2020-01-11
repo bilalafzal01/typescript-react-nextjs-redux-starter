@@ -1,6 +1,6 @@
 import produce from 'immer';
 
-import { ITodoState, ETodoType, TTodoAction } from './type';
+import { ITodoState, ETodoType, TTodoAction } from './todoType';
 
 const initialState: ITodoState = {
   todoDatas: [],

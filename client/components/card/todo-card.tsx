@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { Button } from '@components/button';
 import { BUTTON, COLOR, BREAKPOINT } from '@constants/index';
 
-import { ETodoType } from '@redux/todo/type';
+import { ETodoType } from '@redux/todo/todoType';
 
 interface IProps {
   id: number;

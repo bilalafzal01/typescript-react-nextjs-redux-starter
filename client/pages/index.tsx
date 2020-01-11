@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import RegisterContainer from '@containers/register-container';
 import ListContainer from '@containers/list-container';
 
-import { ETodoType } from '@redux/todo/type';
+import { ETodoType } from '@redux/todo/todoType';
 import BREAKPOINTS from '@constants/mediaquery';
 
 const Main = styled.main`

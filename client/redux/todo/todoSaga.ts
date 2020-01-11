@@ -1,7 +1,7 @@
 import { all, takeLatest, fork, put, call } from 'redux-saga/effects';
 import axios from 'axios';
 
-import { ETodoType } from './type';
+import { ETodoType } from './todoType';
 
 const todoRegisterRequest = async data => await axios.post('/todo/', data);
 

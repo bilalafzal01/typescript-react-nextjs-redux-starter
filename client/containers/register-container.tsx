@@ -6,7 +6,7 @@ import { ContentInput } from '@components/input';
 import { Button } from '@components/button';
 import { BREAKPOINT, COLOR, BUTTON } from '@constants/index';
 
-import { ETodoType } from '@redux/todo/type';
+import { ETodoType } from '@redux/todo/todoType';
 
 const RegisterSection = styled.section`
   justify-content: center;
