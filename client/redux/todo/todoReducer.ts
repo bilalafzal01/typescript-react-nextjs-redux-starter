@@ -2,13 +2,13 @@ import produce from 'immer';
 
 import { ITodoState, ETodoType, TTodoAction } from './todoType';
 
-const initialState: ITodoState = {
+export const initialTodoState: ITodoState = {
   todoDatas: [],
   message: null,
   error: null,
 };
 
-const todoReducer = (state = initialState, action: TTodoAction) => {
+const todoReducer = (state = initialTodoState, action: TTodoAction) => {
   return produce(state, draft => {
     switch (action.type) {
       case ETodoType.TODO_LOAD_REQUEST:

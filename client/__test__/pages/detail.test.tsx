@@ -8,7 +8,7 @@ import { DetailCard } from '@components/card';
 import configureStore from '@redux/configureStore';
 
 describe('<Detail />', () => {
-  const initialState = {
+  const initialRootState = {
     todo: {
       todoDatas: [
         { id: 0, content: '1' },
@@ -18,7 +18,7 @@ describe('<Detail />', () => {
   };
 
   const wrapper = mount(
-    <Provider store={configureStore(initialState, { isServer: false })}>
+    <Provider store={configureStore(initialRootState, { isServer: false })}>
       <Detail id="0" />
     </Provider>,
   );
