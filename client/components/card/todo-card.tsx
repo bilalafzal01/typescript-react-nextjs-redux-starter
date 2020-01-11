@@ -43,7 +43,7 @@ const StyledContent = styled('div')`
 
 const Content = ({ children }) => (
   <StyledContent>
-    <h5>{children}</h5>
+    <h3>{children}</h3>
   </StyledContent>
 );
 

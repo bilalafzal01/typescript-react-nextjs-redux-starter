@@ -130,9 +130,9 @@ exports[`<Index /> matches snapshot 1`] = `
                                 <div
                                   className="css-vapdr2"
                                 >
-                                  <h5>
+                                  <h3>
                                     1
-                                  </h5>
+                                  </h3>
                                 </div>
                               </Styled(div)>
                             </Content>
@@ -182,9 +182,9 @@ exports[`<Index /> matches snapshot 1`] = `
                                 <div
                                   className="css-vapdr2"
                                 >
-                                  <h5>
+                                  <h3>
                                     2
-                                  </h5>
+                                  </h3>
                                 </div>
                               </Styled(div)>
                             </Content>

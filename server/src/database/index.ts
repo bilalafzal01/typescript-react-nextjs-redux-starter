@@ -28,9 +28,10 @@ export default class DataBase {
 
     for (let i = 0; i < this._todoDatas.length; i++) {
       if (this._todoDatas[i].id === id)
-        return (this._todoDatas = this._todoDatas
+        this._todoDatas = this._todoDatas
           .slice(0, i)
-          .concat(this._todoDatas.slice(i + 1)));
+          .concat(this._todoDatas.slice(i + 1));
+      break;
     }
 
     // this._todoDatas = this._todoDatas.filter(data => data.id !== id);

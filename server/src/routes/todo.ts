@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import Database from "../database/database";
+import Database from "../database";
 import dummy from "../database/dummy";
 
 const router = Router();
