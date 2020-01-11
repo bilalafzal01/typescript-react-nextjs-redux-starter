@@ -28,10 +28,9 @@ const StyledTodoCard = styled.article`
 const StyledContent = styled('div')`
   padding: 12.5px 20px;
   margin: 0;
-  h5 {
+  h3 {
     margin: 0;
     height: 25px;
-    font-size: 1rem;
     overflow: hidden;
     cursor: default;
 

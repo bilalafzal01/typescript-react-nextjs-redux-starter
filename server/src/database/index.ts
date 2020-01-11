@@ -34,7 +34,6 @@ export default class DataBase {
       break;
     }
 
-    // this._todoDatas = this._todoDatas.filter(data => data.id !== id);
     return id;
   }
 }
