@@ -7,6 +7,22 @@ import { COLOR, BREAKPOINT } from '@constants/index';
 
 import { TRootState } from '@redux/rootReducer';
 
+const ListContainer: React.FC = () => {
+  const { todoDatas } = useSelector((state: TRootState) => state.todo);
+
+  return (
+    <ListSection>
+      <ListDiv>
+        {todoDatas.map(todoData => (
+          <TodoCard key={todoData.id} id={todoData.id} content={todoData.content} />
+        ))}
+      </ListDiv>
+    </ListSection>
+  );
+};
+
+export default ListContainer;
+
 const ListSection = styled.section`
   justify-content: center;
   align-items: flex-start;
@@ -44,18 +60,3 @@ const ListDiv = styled.div`
     }
   }
 `;
-
-const ListContainer: React.FC = () => {
-  const { todoDatas } = useSelector((state: TRootState) => state.todo);
-  return (
-    <ListSection>
-      <ListDiv>
-        {todoDatas.map(todoData => (
-          <TodoCard key={todoData.id} id={todoData.id} content={todoData.content} />
-        ))}
-      </ListDiv>
-    </ListSection>
-  );
-};
-
-export default ListContainer;

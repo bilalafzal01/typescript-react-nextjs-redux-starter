@@ -5,15 +5,6 @@ interface IProps {
   content: string;
 }
 
-const StyledDetailCard = styled.article`
-  padding: 20px 15px;
-  text-align: center;
-  h3 {
-    margin: 0;
-    cursor: default;
-  }
-`;
-
 const DetailCard: React.FC<IProps> = ({ content }) => {
   return (
     <StyledDetailCard>
@@ -23,3 +14,12 @@ const DetailCard: React.FC<IProps> = ({ content }) => {
 };
 
 export default DetailCard;
+
+const StyledDetailCard = styled.article`
+  padding: 20px 15px;
+  text-align: center;
+  h3 {
+    margin: 0;
+    cursor: default;
+  }
+`;

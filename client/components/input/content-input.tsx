@@ -5,9 +5,15 @@ import { BREAKPOINT } from '@constants/index';
 
 interface IProps {
   content: string;
-  onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onKeyDownHandler: (e?) => void;
+  onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDownHandler: (event?) => void;
 }
+
+const ContentInput: React.FC<IProps> = ({ content, onChangeHandler, onKeyDownHandler }) => {
+  return <StyledContentInput type="text" value={content} onChange={onChangeHandler} onKeyDown={onKeyDownHandler} />;
+};
+
+export default ContentInput;
 
 const StyledContentInput = styled.input`
   padding: 10px 20px;
@@ -23,9 +29,3 @@ const StyledContentInput = styled.input`
     font-size: 20px;
   }
 `;
-
-const ContentInput: React.FC<IProps> = ({ content, onChangeHandler, onKeyDownHandler }) => {
-  return <StyledContentInput type="text" value={content} onChange={onChangeHandler} onKeyDown={onKeyDownHandler} />;
-};
-
-export default ContentInput;

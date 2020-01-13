@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styled from '@emotion/styled';
 
 import { Button } from '@components/button';
-import { BUTTON, COLOR, BREAKPOINT } from '@constants/index';
+import { BUTTON_TYPE, COLOR, BREAKPOINT } from '@constants/index';
 
 import { ETodoType } from '@redux/todo/todoType';
 
@@ -12,6 +12,30 @@ interface IProps {
   id: number;
   content: string;
 }
+
+const TodoCard: React.FC<IProps> = ({ id, content }) => {
+  const dispatch = useDispatch();
+
+  const onClickAchieveTodo = () => {
+    dispatch({
+      type: ETodoType.TODO_ACHIEVE_REQUEST,
+      payload: { id },
+    });
+  };
+
+  return (
+    <StyledTodoCard>
+      <Link href={`/detail/${id}`}>
+        <a>
+          <Content>{content}</Content>
+        </a>
+      </Link>
+      <Button onClickHandler={onClickAchieveTodo} buttonType={BUTTON_TYPE.DONE} />
+    </StyledTodoCard>
+  );
+};
+
+export default TodoCard;
 
 const StyledTodoCard = styled.article`
   grid-template-columns: auto 50px;
@@ -45,27 +69,3 @@ const Content = ({ children }) => (
     <h3>{children}</h3>
   </StyledContent>
 );
-
-const TodoCard: React.FC<IProps> = ({ id, content }) => {
-  const dispatch = useDispatch();
-
-  const onClickAchieve = () => {
-    dispatch({
-      type: ETodoType.TODO_ACHIEVE_REQUEST,
-      payload: { id },
-    });
-  };
-
-  return (
-    <StyledTodoCard>
-      <Link href={`/detail/${id}`}>
-        <a>
-          <Content>{content}</Content>
-        </a>
-      </Link>
-      <Button onClickHandler={onClickAchieve} buttonType={BUTTON.DONE} />
-    </StyledTodoCard>
-  );
-};
-
-export default TodoCard;

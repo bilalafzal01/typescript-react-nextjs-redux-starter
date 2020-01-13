@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import { ContentInput } from '@components/input';
 import { Button } from '@components/button';
-import { BREAKPOINT, COLOR, BUTTON } from '@constants/index';
+import { BREAKPOINT, COLOR, BUTTON_TYPE } from '@constants/index';
 
 import { ETodoType } from '@redux/todo/todoType';
 
@@ -13,21 +13,22 @@ const RegisterContainer: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  const setContentByChangeContentInput = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setContent(event.currentTarget.value);
+  const onChangeSetContent = (event: React.ChangeEvent<HTMLInputElement>) => setContent(event.currentTarget.value);
 
-  const checkKeyDownAndEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const checkKeyDownAndIsEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key && event.key !== 'Enter') return;
   };
 
-  const checkContentLengthBelowZero = () => {
+  const checkIsContentLengthBelowZero = () => {
     if (content.trim().length <= 0) return;
   };
 
+  const initContent = () => setContent('');
+
   const onSubmitToDo = event => {
-    checkKeyDownAndEnter(event);
-    checkContentLengthBelowZero();
-    setContent('');
+    checkKeyDownAndIsEnter(event);
+    checkIsContentLengthBelowZero();
+    initContent();
     dispatch({
       type: ETodoType.TODO_REGISTER_REQUEST,
       payload: { content: content.trim() },
@@ -37,14 +38,10 @@ const RegisterContainer: React.FC = () => {
   return (
     <RegisterSection>
       <RegisterDiv>
-        <ContentInput
-          content={content}
-          onChangeHandler={setContentByChangeContentInput}
-          onKeyDownHandler={onSubmitToDo}
-        />
+        <ContentInput content={content} onChangeHandler={onChangeSetContent} onKeyDownHandler={onSubmitToDo} />
         <Button
           onClickHandler={onSubmitToDo}
-          buttonType={BUTTON.CREATE}
+          buttonType={BUTTON_TYPE.CREATE}
           buttonColor={content.trim().length <= 0 && COLOR.SILVER}
         />
       </RegisterDiv>
