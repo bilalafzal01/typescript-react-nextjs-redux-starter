@@ -17,14 +17,14 @@ export default class DataBase {
   }
 
   insert(content: string) {
-    if (content.trim().length <= 0) throw Error("Content is not allowed null");
-    this._todoDatas.push({ id: ++this._id, content });
-    return this._id;
+    this._checkIsContentNull(content);
+    const addedIdTodoData = this._makeAddedIdTodoData(content);
+    this._todoDatas.push(addedIdTodoData);
+    return this._todoDatas[this._todoDatas.length - 1];
   }
 
   delete(id: number) {
-    const isExistIndex = this._todoDatas.findIndex(data => data.id === id);
-    if (isExistIndex < 0) throw Error("Deleted data is out of existance");
+    this._checkIsDataExists(id);
 
     for (let i = 0; i < this._todoDatas.length; i++) {
       if (this._todoDatas[i].id === id)
@@ -35,5 +35,20 @@ export default class DataBase {
     }
 
     return id;
+  }
+
+  private _makeAddedIdTodoData(content: string) {
+    return { id: ++this._id, content };
+  }
+
+  private _checkIsContentNull(content: string) {
+    if (content.trim().length <= 0) throw Error("Content is not allowed null");
+  }
+
+  private _checkIsDataExists(id: number) {
+    const isDataExists = this._todoDatas.findIndex(
+      todoData => todoData.id === id
+    );
+    if (isDataExists < 0) throw Error("Deleted data is out of existance");
   }
 }

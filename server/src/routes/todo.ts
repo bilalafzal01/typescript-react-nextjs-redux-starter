@@ -22,11 +22,10 @@ router.post("/", (req, res) => {
 
     const result = db.insert(content);
 
-    if (result > 0)
-      return res.status(200).json({
-        message: "Success insert content",
-        todoData: { id: result, content }
-      });
+    return res.status(200).json({
+      message: "Success insert content",
+      todoData: { id: result.id, content: result.content }
+    });
   } catch (e) {
     console.error(e);
     return res.status(500).json({ message: "Catch error" });
