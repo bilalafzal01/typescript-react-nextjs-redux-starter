@@ -3,9 +3,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
+import configureStore from '@redux/configureStore';
 import Detail from '@pages/detail';
 import { DetailCard } from '@components/card';
-import configureStore from '@redux/configureStore';
 
 describe('<Detail />', () => {
   const initialRootState = {

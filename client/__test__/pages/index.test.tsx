@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import configureStore from '@redux/configureStore';
-
 import Index from '@pages/index';
 import RegisterContainer from '@containers/register-container';
 import { TodoCard } from '@components/card';

@@ -8,6 +8,52 @@ import { BREAKPOINT, COLOR, BUTTON } from '@constants/index';
 
 import { ETodoType } from '@redux/todo/todoType';
 
+const RegisterContainer: React.FC = () => {
+  const [content, setContent] = useState<string>('');
+
+  const dispatch = useDispatch();
+
+  const setContentByChangeContentInput = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setContent(event.currentTarget.value);
+
+  const checkKeyDownAndEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key && event.key !== 'Enter') return;
+  };
+
+  const checkContentLengthBelowZero = () => {
+    if (content.trim().length <= 0) return;
+  };
+
+  const onSubmitToDo = event => {
+    checkKeyDownAndEnter(event);
+    checkContentLengthBelowZero();
+    setContent('');
+    dispatch({
+      type: ETodoType.TODO_REGISTER_REQUEST,
+      payload: { content: content.trim() },
+    });
+  };
+
+  return (
+    <RegisterSection>
+      <RegisterDiv>
+        <ContentInput
+          content={content}
+          onChangeHandler={setContentByChangeContentInput}
+          onKeyDownHandler={onSubmitToDo}
+        />
+        <Button
+          onClickHandler={onSubmitToDo}
+          buttonType={BUTTON.CREATE}
+          buttonColor={content.trim().length <= 0 && COLOR.SILVER}
+        />
+      </RegisterDiv>
+    </RegisterSection>
+  );
+};
+
+export default RegisterContainer;
+
 const RegisterSection = styled.section`
   justify-content: center;
   align-items: flex-start;
@@ -36,38 +82,3 @@ const RegisterDiv = styled.div`
     margin: 30px;
   }
 `;
-
-const RegisterContainer: React.FC = () => {
-  const dispatch = useDispatch();
-
-  const [content, setContent] = useState<string>('');
-
-  const onChangeContent = (e: React.ChangeEvent<HTMLInputElement>) => setContent(e.currentTarget.value);
-
-  const onSubmit = e => {
-    if (e.key && e.key !== 'Enter') return;
-    if (content.trim().length <= 0) return;
-
-    setContent('');
-
-    dispatch({
-      type: ETodoType.TODO_REGISTER_REQUEST,
-      payload: { content: content.trim() },
-    });
-  };
-
-  return (
-    <RegisterSection>
-      <RegisterDiv>
-        <ContentInput content={content} onChangeHandler={onChangeContent} onKeyDownHandler={onSubmit} />
-        <Button
-          onClickHandler={onSubmit}
-          buttonType={BUTTON.CREATE}
-          buttonColor={content.trim().length <= 0 && COLOR.SILVER}
-        />
-      </RegisterDiv>
-    </RegisterSection>
-  );
-};
-
-export default RegisterContainer;

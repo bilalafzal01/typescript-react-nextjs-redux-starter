@@ -6,12 +6,6 @@ import DetailContainer from '@containers/detail-container';
 
 import { ETodoType } from '@redux/todo/todoType';
 
-const Main = styled.main`
-  display: grid;
-  justify-content: center;
-  align-items: center;
-`;
-
 const Detail = ({ id }) => {
   return (
     <Main>
@@ -29,3 +23,9 @@ Detail.getInitialProps = ({ store, query }: NextJSContext) => {
 };
 
 export default Detail;
+
+const Main = styled.main`
+  display: grid;
+  justify-content: center;
+  align-items: center;
+`;
