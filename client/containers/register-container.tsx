@@ -16,6 +16,7 @@ const RegisterContainer: React.FC = () => {
   const onChangeSetContent = (event: React.ChangeEvent<HTMLInputElement>) => setContent(event.currentTarget.value);
 
   const checkKeyDownAndIsEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log(event.currentTarget.value);
     if (event.key && event.key !== 'Enter') return;
   };
 

@@ -8,13 +8,6 @@ import ListContainer from '@containers/list-container';
 import { ETodoType } from '@redux/todo/todoType';
 import BREAKPOINTS from '@constants/mediaquery';
 
-const Main = styled.main`
-  ${BREAKPOINTS} {
-    display: grid;
-    grid-template-rows: 112px 555px;
-  }
-`;
-
 const Index = () => {
   return (
     <Main>
@@ -33,3 +26,10 @@ Index.getInitialProps = async ({ store }: NextJSContext) => {
 };
 
 export default Index;
+
+const Main = styled.main`
+  ${BREAKPOINTS} {
+    display: grid;
+    grid-template-rows: 112px 555px;
+  }
+`;

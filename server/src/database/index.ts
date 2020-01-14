@@ -27,11 +27,12 @@ export default class DataBase {
     this._checkIsDataExists(id);
 
     for (let i = 0; i < this._todoDatas.length; i++) {
-      if (this._todoDatas[i].id === id)
+      if (this._todoDatas[i].id === id) {
         this._todoDatas = this._todoDatas
           .slice(0, i)
           .concat(this._todoDatas.slice(i + 1));
-      break;
+        break;
+      }
     }
 
     return id;
