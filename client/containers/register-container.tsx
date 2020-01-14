@@ -16,8 +16,8 @@ const RegisterContainer: React.FC = () => {
   const onChangeSetContent = (event: React.ChangeEvent<HTMLInputElement>) => setContent(event.currentTarget.value);
 
   const checkKeyDownAndIsEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(event.currentTarget.value);
-    if (event.key && event.key !== 'Enter') return;
+    if (event.key && event.key !== 'Enter') return false;
+    return true;
   };
 
   const checkIsContentLengthBelowZero = () => {
@@ -27,6 +27,7 @@ const RegisterContainer: React.FC = () => {
   const initContent = () => setContent('');
 
   const onSubmitToDo = event => {
+    if (!checkKeyDownAndIsEnter(event)) return;
     checkKeyDownAndIsEnter(event);
     checkIsContentLengthBelowZero();
     initContent();
