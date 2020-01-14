@@ -21,15 +21,15 @@ const RegisterContainer: React.FC = () => {
   };
 
   const checkIsContentLengthBelowZero = () => {
-    if (content.trim().length <= 0) return;
+    if (content.trim().length <= 0) return false;
+    return true;
   };
 
   const initContent = () => setContent('');
 
   const onSubmitToDo = event => {
     if (!checkKeyDownAndIsEnter(event)) return;
-    checkKeyDownAndIsEnter(event);
-    checkIsContentLengthBelowZero();
+    if (!checkIsContentLengthBelowZero()) return;
     initContent();
     dispatch({
       type: ETodoType.TODO_REGISTER_REQUEST,
