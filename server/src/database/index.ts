@@ -17,14 +17,14 @@ export default class DataBase {
   }
 
   insert(content: string) {
-    this._checkIsContentNull(content);
-    const addedIdTodoData = this._makeAddedIdTodoData(content);
+    this.checkContentNull(content);
+    const addedIdTodoData = this.makeAddedIdTodoData(content);
     this._todoDatas.push(addedIdTodoData);
     return this._todoDatas[this._todoDatas.length - 1];
   }
 
   delete(id: number) {
-    this._checkIsDataExists(id);
+    this.checkDataExists(id);
 
     for (let i = 0; i < this._todoDatas.length; i++) {
       if (this._todoDatas[i].id === id) {
@@ -38,15 +38,15 @@ export default class DataBase {
     return id;
   }
 
-  private _makeAddedIdTodoData(content: string) {
+  private makeAddedIdTodoData(content: string) {
     return { id: ++this._id, content };
   }
 
-  private _checkIsContentNull(content: string) {
+  private checkContentNull(content: string) {
     if (content.trim().length <= 0) throw Error("Content is not allowed null");
   }
 
-  private _checkIsDataExists(id: number) {
+  private checkDataExists(id: number) {
     const isDataExists = this._todoDatas.findIndex(
       todoData => todoData.id === id
     );
